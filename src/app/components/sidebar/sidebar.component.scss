@@ -1,0 +1,78 @@
+$primary-color: #14238A;
+$primary-color-hover: #0e1c78;
+
+$secondary-color: #D60A0B;
+$secondary-color-hover: #b00d0d;
+
+
+#sidebar {
+  height: 100vh;
+  max-width: 100px;
+}
+
+.icon-sidebar {
+  width: 100%;
+  height: 70px;
+  transition: 100ms;
+  cursor: pointer;
+  border-bottom: 3px $primary-color-hover solid;
+
+  &:hover {
+    background-color: $primary-color-hover;
+    transition: 100ms;
+  }
+}
+
+.icon-sidebar p {
+  font-size: 16px;
+}
+
+.subitem-sidebar {
+  width: 100%;
+  height: 40px;
+  transition: 100ms;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color-hover;
+    transition: 100ms;
+  }
+}
+
+.subitem-sidebar p {
+  font-size: 14px;
+}
+
+.sidebar {
+  width: 230px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: auto;
+  min-height: 10%;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 100%;
+  z-index: 3;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar-header {
+  width: 100%;
+  height: 80px;
+}
+
+.header-logo {
+  max-width: 100px;
+}
+
+.btn-nav {
+  text-decoration: none;
+  color: #4e4e4e
+}
+
+
+li:hover .btn-nav {
+  color: #000000;
+
+}
