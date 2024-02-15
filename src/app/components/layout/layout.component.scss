@@ -1,10 +1,16 @@
-.margin-with-sidebar {
+.margin-normal {
     margin: 135px 30px 0px 250px;
 }
 
-.margin-without-sidebar {
-    margin: 120px 0px 0px 0px;
+.margin-mobile {
+    margin: 120px 0px 0px 70px;
 }
+
+
+.margin-without-sidebar {
+    margin: 120px 0px 0px 15px;
+}
+
 
 #button-menu {
     z-index: 10;
@@ -13,4 +19,92 @@
     border: none;
     outline: none;
     position: fixed;
+}
+
+#button-close-sidebar {
+    position: fixed;
+    top: 25px;
+    z-index: 10;
+}
+
+.left-with-sidebar {
+    left: 170px;
+}
+
+.left-without-sidebar {
+    left: 20px;
+}
+
+.nav-bar-padding-with-sidebar {
+    padding: 0px 20px 0px 250px;
+}
+
+.nav-bar-padding-without-sidebar {
+    padding: 0px 20px 0px 60px;
+}
+
+
+$secondary-color: #D60A0B;
+$secondary-color-hover: #b00d0d;
+
+.nav-bar {
+    top: 0;
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid #e7e7e7;
+    box-shadow: 0px 3px 8px 0px rgba($color: #000000, $alpha: 0.1);
+    position: fixed;
+    z-index: 2;
+}
+
+
+
+
+.breadcrumb {
+    padding: 10px 40px 0px 270px;
+}
+
+.link-headbar {
+    color: $secondary-color;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        color: $secondary-color-hover;
+    }
+}
+
+#icon-search {
+    color: #A2A2A2;
+}
+
+#input-search {
+    border-radius: 5px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px transparent solid;
+    padding: 15px;
+    transition: 200ms;
+    color: rgba($color: #A2A2A2, $alpha: 1);
+    font-size: 16px;
+
+    &:focus {
+        outline: none;
+        transition: 200ms;
+    }
+
+    &::placeholder {
+        color: rgba($color: #A2A2A2, $alpha: .8);
+    }
+
+}
+
+
+#avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(../../../assets/images/avatar.jpg);
+    background-size: cover;
+    background-position: center;
 }

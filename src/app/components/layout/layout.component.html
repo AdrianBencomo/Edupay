@@ -1,9 +1,64 @@
+<button class="button bg-transparent" id="button-close-sidebar" (click)="switchShowSidebar()"
+    [ngClass]="{'left-with-sidebar': !isMobile, 'text-white': showSidebar, 'left-without-sidebar': isMobile||!showSidebar, 'text-black': !showSidebar,}">
+    @if(isMobile){
+    @if(showSidebar){
+    <span class="material-symbols-outlined fs-2">
+        close
+    </span>
+    }
+    @else{
+    <span class="material-symbols-outlined fs-2">
+        sort
+    </span>
+    }
+
+    }
+    @else{
+    <span class="material-symbols-outlined fs-2">
+        sort
+    </span>
+    }
+</button>
 <div class="container-fluid">
     <div class="row">
-        <app-headbar></app-headbar>
+        <div class="nav-bar bg-white"
+            [ngClass]="{'nav-bar-padding-with-sidebar': !isMobile, 'nav-bar-padding-without-sidebar': isMobile}">
+            <div class="container-fluid h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-9 col-sm-8 col-md-8 col-lg-10 d-flex align-items-center">
+                        <span id="icon-search" class="material-symbols-outlined fs-2">
+                            search
+                        </span>
+                        <input type="search" id="input-search" class="w-100 poppins" placeholder="Search">
+                    </div>
+                    <div class="col-3 col-sm-4 col-md-4 col-lg-2 d-flex align-items-center justify-content-end">
+                        <span
+                            class="d-none d-sm-block material-symbols-outlined fs-4 text-secondary-color link-headbar">
+                            mail
+                        </span>
+                        <span
+                            class="d-none d-sm-block material-symbols-outlined fs-4 text-secondary-color ms-3 link-headbar">
+                            notifications
+                        </span>
+                        <span class="d-none d-sm-block fs-4 text-secondary-color ms-3 mb-2">
+                            |
+                        </span>
+                        <div class="d-flex align-items-center ms-3 clickeable">
+                            <div id="avatar"></div>
+                            <span class="material-symbols-outlined">
+                                arrow_drop_down
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <app-sidebar *ngIf="showSidebar"></app-sidebar>
+
+
     </div>
-    <div [ngClass]="{'margin-with-sidebar': showSidebar, 'margin-without-sidebar': !showSidebar}">
+    <div [ngClass]="{'margin-normal': !isMobile, 'margin-mobile': isMobile, 'margin-without-sidebar': !showSidebar}">
         <router-outlet></router-outlet>
     </div>
 </div>

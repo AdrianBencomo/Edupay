@@ -1,21 +1,23 @@
 <div class="p-0">
-    <div class="sidebar bg-primary-color collapsing navbar-collapse">
-        <div class="sidebar-header d-flex justify-content-between align-items-center p-3 bg-secondary-color">
+    <div class="sidebar bg-primary-color collapsing navbar-collapse"
+        [ngClass]="{'sidebar-width-normal': !isMobile, 'sidebar-width-mobile': isMobile }">
+        <div class="sidebar-header d-flex justify-content-between align-items-center p-3 bg-secondary-color position-fixed"
+            [ngClass]="{'sidebar-width-normal': !isMobile, 'sidebar-width-mobile': isMobile }">
+            @if(!isMobile){
             <img class="img-fluid" src="assets/images/logo-small.png" width="50" height="50">
-            <button class="button bg-transparent text-white">
-                <span class="material-symbols-outlined fs-2">
-                    sort
-                </span>
-            </button>
+            }
         </div>
         <div class="sidebar-body">
             <div class="d-flex align-items-center text-white icon-sidebar ps-3 pe-3">
                 <span class="material-symbols-outlined">
                     av_timer
                 </span>
+                @if(!isMobile){
                 <p class="mt-3 ms-2 fw-bold poppins">
                     Dashboard
                 </p>
+                }
+
             </div>
             <div class="d-flex align-items-center justify-content-between text-white icon-sidebar ps-3 pe-3"
                 (click)="switchStudentsModule()">
@@ -23,14 +25,21 @@
                     <span class="material-symbols-outlined">
                         directions_walk
                     </span>
+
+                    @if(!isMobile){
                     <p class="mt-3 ms-2 poppins">
                         Students
                     </p>
+                    }
+
                 </div>
+                @if(!isMobile){
                 <span class="material-symbols-outlined">
                     chevron_right
                 </span>
+                }
             </div>
+
             @if (showStudentsModule) {
             <div class="bg-third-color pt-2 pb-2">
                 <div [routerLink]="'/admin/all-student'"
@@ -39,9 +48,12 @@
                         <span class="material-symbols-outlined">
                             chevron_right
                         </span>
+                        @if(!isMobile){
                         <p class="mt-3 ms-2 poppins">
                             All Students
                         </p>
+                        }
+
                     </div>
                 </div>
                 <div [routerLink]="'/admin/add-student'"
@@ -50,9 +62,12 @@
                         <span class="material-symbols-outlined">
                             chevron_right
                         </span>
+                        @if(!isMobile){
                         <p class="mt-3 ms-2 poppins">
                             Add Students
                         </p>
+                        }
+
                     </div>
                 </div>
                 <div [routerLink]="'/admin/promotion-student'"
@@ -61,63 +76,119 @@
                         <span class="material-symbols-outlined">
                             chevron_right
                         </span>
+                        @if(!isMobile){
                         <p class="mt-3 ms-2 poppins">
                             Students Promotion
                         </p>
+                        }
+
                     </div>
                 </div>
             </div>
             }
 
-            <div class="d-flex align-items-center text-white icon-sidebar ps-3 pe-3">
+            <div [routerLink]="'/admin/all-parent'" class="d-flex align-items-center text-white icon-sidebar ps-3 pe-3">
                 <span class="material-symbols-outlined">
                     group
                 </span>
+                @if(!isMobile){
                 <p class="mt-3 ms-2 poppins">
                     Parents
                 </p>
+                }
+
             </div>
-            <div class="d-flex align-items-center justify-content-between text-white icon-sidebar ps-3 pe-3">
+            <div class="d-flex align-items-center justify-content-between text-white icon-sidebar ps-3 pe-3"
+                (click)="switchTeachersModule()">
                 <div class="d-flex align-items-center">
                     <span class="material-symbols-outlined">
                         hail
                     </span>
+                    @if(!isMobile){
                     <p class="mt-3 ms-2">
                         Teachers
                     </p>
+                    }
+
                 </div>
+                @if(!isMobile){
                 <span class="material-symbols-outlined">
                     chevron_right
                 </span>
+                }
+
             </div>
+            @if (showTeachersModule) {
+            <div class="bg-third-color pt-2 pb-2">
+                <div [routerLink]="'/admin/all-teacher'"
+                    class="d-flex align-items-center justify-content-between text-white subitem-sidebar poppins ps-3 pe-3">
+                    <div class="d-flex align-items-center">
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                        @if(!isMobile){
+                        <p class="mt-3 ms-2 poppins">
+                            All Teachers
+                        </p>
+                        }
+
+                    </div>
+                </div>
+                <div [routerLink]="'/admin/add-teacher'"
+                    class="d-flex align-items-center justify-content-between text-white subitem-sidebar poppins ps-3 pe-3">
+                    <div class="d-flex align-items-center">
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                        @if(!isMobile){
+                        <p class="mt-3 ms-2 poppins">
+                            Add Teachers
+                        </p>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            }
             <div class="d-flex align-items-center justify-content-between text-white icon-sidebar ps-3 pe-3">
                 <div class="d-flex align-items-center">
                     <span class="material-symbols-outlined">
                         calculate
                     </span>
+                    @if(!isMobile){
                     <p class="mt-3 ms-2 poppins">
                         Account
                     </p>
+                    }
+
                 </div>
+                @if(!isMobile){
                 <span class="material-symbols-outlined">
                     chevron_right
                 </span>
+                }
+
             </div>
             <div class="d-flex align-items-center text-white icon-sidebar ps-3 pe-3">
                 <span class="material-symbols-outlined">
                     menu_book
                 </span>
+                @if(!isMobile){
                 <p class="mt-3 ms-2 poppins">
                     Subject
                 </p>
+                }
             </div>
             <div class="d-flex align-items-center text-white icon-sidebar ps-3 pe-3">
                 <span class="material-symbols-outlined">
                     settings
                 </span>
+                @if(!isMobile){
                 <p class="mt-3 ms-2 poppins">
                     Settings
                 </p>
+                }
+
             </div>
 
         </div>
