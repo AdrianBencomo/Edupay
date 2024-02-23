@@ -1,0 +1,38 @@
+$secondary-color: #D60A0B;
+
+#fees-list {
+    border-bottom: 2px solid transparent; /* Define un borde inferior transparente */
+    position: relative; /* Establece la posición relativa para posicionar el borde */
+}
+
+#fees-list::after {
+    content: ''; /* Agrega un contenido pseudo-elemento */
+    position: absolute; /* Establece la posición absoluta con respecto al contenedor */
+    bottom: 0; /* Lo sitúa al final del contenedor */
+    left: 40%; /* Lo coloca en la mitad del contenedor */
+    width: 30%; /* Establece que ocupe la mitad del contenedor */
+    height: 2px; /* Define la altura del borde */
+    background-color: $secondary-color; /* Establece el color rojo para el borde */
+}
+
+table {
+    border: 1px rgb(71, 71, 71) solid;
+    font-family: Poppins;
+}
+
+table thead tr th {
+    padding: 10px 20px 10px 15px !important;
+    color: black !important;
+    font-weight: bold !important;
+    border: 1px rgb(71, 71, 71) solid;
+    text-align: left;
+}
+
+table tbody tr td {
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    font-size: 14px;
+    padding: 15px !important;
+    border: 1px rgb(71, 71, 71) solid;
+}

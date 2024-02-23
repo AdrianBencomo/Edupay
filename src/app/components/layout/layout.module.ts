@@ -11,6 +11,11 @@ import { DetailParentComponent } from '../../views/detail-parent/detail-parent.c
 import { DetailTeacherComponent } from '../../views/detail-teacher/detail-teacher.component';
 import { AllTeacherComponent } from '../../views/all-teacher/all-teacher.component';
 import { FormTeacherComponent } from '../../views/form-teacher/form-teacher.component';
+import { FeesGroupComponent } from '../../views/fees-group/fees-group.component';
+import { StudentFeesComponent } from '../../views/student-fees/student-fees.component';
+import { AllExpenseComponent } from '../../views/all-expense/all-expense.component';
+import { FormExpenseComponent } from '../../views/form-expense/form-expense.component';
+import { AllSubjectComponent } from '../../views/all-subject/all-subject.component';
 
 const routes: Routes = [
   {
@@ -53,7 +58,26 @@ const routes: Routes = [
         path: 'detail-teacher',
         component: DetailTeacherComponent
       },
-
+      {
+        path: 'fees-group',
+        component: FeesGroupComponent
+      },
+      {
+        path: 'student-fees',
+        component: StudentFeesComponent
+      },
+      {
+        path: 'all-expense',
+        component: AllExpenseComponent
+      },
+      {
+        path: 'add-expense',
+        component: FormExpenseComponent
+      },
+      {
+        path: 'all-subject',
+        component: AllSubjectComponent
+      },
     ]
   }
 ]

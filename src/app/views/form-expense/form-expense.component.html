@@ -1,0 +1,66 @@
+<h3 class="title fs-5">Account</h3>
+<div class="mt-3 d-flex align-items-center">
+    <p class="bc-inactive font-size-small poppins">
+        Home
+    </p>
+    <span class="material-symbols-outlined text-secondary-color ms-2 mb-3">
+        chevron_right
+    </span>
+    <p class="text-secondary-color font-size-small poppins fw-bold ms-2">
+        Add Expense
+    </p>
+</div>
+<div class="content mt-4 p-4 overflow-x-auto">
+    <div class="container-fluid">
+        <h3 class="mt-5 poppins fs-4 fw-bold">Add New Expenses</h3>
+        <div class="row align-items-center mt-3">
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="name" class="poppins font-size-small">Name *</label>
+                <br>
+                <input type="text" id="name" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="type" class="poppins font-size-small">Expense Type *</label>
+                <br>
+                <select id="type" class="input-filter w-100 font-size-small px-3 py-2">
+                    <option value="" disabled selected>Please Select Class</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="status" class="poppins font-size-small">Status *</label>
+                <br>
+                <select id="status" class="input-filter w-100 font-size-small px-3 py-2">
+                    <option value="" disabled selected>Please Select</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="amount" class="poppins font-size-small">Amount *</label>
+                <br>
+                <input type="text" id="amount" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+        </div>
+        <div class="row align-items-center mt-3">
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="phone" class="poppins font-size-small">Phone </label>
+                <br>
+                <input type="text" id="phone" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="email" class="poppins font-size-small">Email </label>
+                <br>
+                <input type="email" id="email" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="due_date" class="poppins font-size-small">Due Date *</label>
+                <br>
+                <input type="date" id="due_date" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="d-flex mt-5">
+            <button class="button button-secondary pt-2 pb-2 ps-5 pe-5">Save</button>
+            <button class="button button-primary pt-2 pb-2 ps-5 pe-5 ms-3">Reset</button>
+        </div>
+    </div>
+</div>

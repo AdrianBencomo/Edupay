@@ -14,6 +14,8 @@ export class SidebarComponent {
   isMobile: boolean;
   showStudentsModule: boolean = false;
   showTeachersModule: boolean = false;
+  showAccountModule: boolean = false;
+
 
 
   constructor() {
@@ -33,6 +35,10 @@ export class SidebarComponent {
 
   switchTeachersModule() {
     this.showTeachersModule = !this.showTeachersModule
+  }
+
+  switchAccountModule() {
+    this.showAccountModule = !this.showAccountModule
   }
 
 }

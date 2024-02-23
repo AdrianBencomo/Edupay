@@ -1,0 +1,88 @@
+<h3 class="title fs-5">Subjects</h3>
+<div class="mt-3 d-flex align-items-center">
+    <p class="bc-inactive font-size-small poppins">
+        Home
+    </p>
+    <span class="material-symbols-outlined text-secondary-color ms-2 mb-3">
+        chevron_right
+    </span>
+    <p class="text-secondary-color font-size-small poppins fw-bold ms-2">
+        Subject
+    </p>
+</div>
+<div class="content mt-4 p-4">
+    <h3 class="poppins fs-4 fw-bold">All Subjects</h3>
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-between mt-3">
+            <input type="text" class="col-12 col-md-4 input-filter font-size-small px-3 py-2 mt-1"
+                placeholder="Search by subject name...">
+            <select class="col-12 col-md-4 input-filter font-size-small px-3 py-2 mt-1">
+                <option value="" disabled selected>Select Class</option>
+            </select>
+            <button class="col-12 col-md-3 button button-search font-size-small mt-1">SEARCH</button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-responsive table-hover mt-5">
+            <thead>
+                <tr>
+                    <th scope="col" class="center-item-table">Subject Name</th>
+                    <th scope="col" class="center-item-table">Teacher</th>
+                    <th scope="col" class="center-item-table">Classes</th>
+                    <th scope="col" class="center-item-table">Days</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (subject of subjects; track subject.id) {
+                <tr>
+                    <td class="center-item-table">{{subject.name}}</td>
+                    <td class="center-item-table">{{subject.teacher}}</td>
+                    <td class="center-item-table">{{subject.classes}}</td>
+                    <td class="center-item-table">{{subject.days}}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex align-items-center justify-content-end mt-3">
+        <p class="pagination-item fs-5 m-2">Previous</p>
+        <button class="button button-pagination-active font-size-small m-2">1</button>
+        <button class="button button-pagination-inactive font-size-small m-2">2</button>
+        <button class="button button-pagination-inactive font-size-small m-2">3</button>
+        <p class="pagination-item fs-5 m-2">Next</p>
+
+    </div>
+</div>
+<div class="content mt-5 p-4 overflow-x-auto">
+    <div class="container-fluid">
+        <h3 class="mt-5 poppins fs-4 fw-bold">Add New Subject</h3>
+        <div class="row align-items-center mt-3">
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="name" class="poppins font-size-small">Subject Name *</label>
+                <br>
+                <input type="text" id="name" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="teacher" class="poppins font-size-small">Teacher </label>
+                <br>
+                <input type="text" id="teacher" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="classes" class="poppins font-size-small">Classes </label>
+                <br>
+                <input type="text" id="classes" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="days" class="poppins font-size-small">Days </label>
+                <br>
+                <input type="text" id="days" class="input-filter w-100 font-size-small px-3 py-2">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="d-flex mt-5">
+            <button class="button button-secondary pt-2 pb-2 ps-5 pe-5">Save</button>
+            <button class="button button-primary pt-2 pb-2 ps-5 pe-5 ms-3">Reset</button>
+        </div>
+    </div>
+</div>
