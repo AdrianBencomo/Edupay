@@ -85,7 +85,7 @@ const routes: Routes = [
         component: SettingsComponent
       },
       {
-        path: 'dash',
+        path: 'dashboard',
         component: DashboardComponent
       },
     ]
