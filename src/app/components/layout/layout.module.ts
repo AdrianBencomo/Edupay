@@ -16,6 +16,8 @@ import { StudentFeesComponent } from '../../views/student-fees/student-fees.comp
 import { AllExpenseComponent } from '../../views/all-expense/all-expense.component';
 import { FormExpenseComponent } from '../../views/form-expense/form-expense.component';
 import { AllSubjectComponent } from '../../views/all-subject/all-subject.component';
+import { SettingsComponent } from '../../views/settings/settings.component';
+import { DashboardComponent } from '../../views/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -77,6 +79,14 @@ const routes: Routes = [
       {
         path: 'all-subject',
         component: AllSubjectComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
+      },
+      {
+        path: 'dash',
+        component: DashboardComponent
       },
     ]
   }

@@ -1,0 +1,21 @@
+#banner {
+    width: 100%;
+    height: 350px;
+    background-image: url(../../../assets/images/banner-account.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#content{
+    margin-top: -200px;
+}
+
+#avatar{
+    // filter: drop-shadow(0px 0px 2px white);
+}
+
+.input-account{
+    border: 1px black solid;
+    border-radius: 3px;
+}

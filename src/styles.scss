@@ -17,12 +17,12 @@
 
 $primary-color: #14238A;
 $primary-color-hover: #0e1c78;
-
 $secondary-color: #D60A0B;
 $secondary-color-hover: #b00d0d;
 $secondary-color-hover-light: #fff1f1;
-
 $third-color: #263AC3;
+$green-color: #4FE397;
+$blue-color: #2139DE;
 
 
 body {
@@ -72,12 +72,28 @@ table tbody tr td {
     background-color: $third-color;
 }
 
+.bg-green-color{
+    background-color: $green-color;
+}
+
+.bg-blue-color{
+    background-color: $blue-color;
+}
+
 .text-primary-color {
     color: $primary-color;
 }
 
 .text-secondary-color {
     color: $secondary-color;
+}
+
+.text-light-color {
+    color: #C4C4C4;
+}
+
+.bg-light-color {
+    background-color: #C4C4C4;
 }
 
 .input {

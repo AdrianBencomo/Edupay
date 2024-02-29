@@ -16,8 +16,6 @@ export class SidebarComponent {
   showTeachersModule: boolean = false;
   showAccountModule: boolean = false;
 
-
-
   constructor() {
     this.screenWidth = window.innerWidth;
     this.isMobile = this.screenWidth <= 1024
