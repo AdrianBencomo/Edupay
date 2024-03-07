@@ -22,29 +22,32 @@
             <button class="col-12 col-md-3 button button-search font-size-small mt-1">SEARCH</button>
         </div>
     </div>
+    @if(loading){
+    <div class="d-flex align-items-center justify-content-center mt-5">
+        <app-loading></app-loading>
+    </div>
+    }
+    @if(noData){
+    <div class="d-flex align-items-center justify-content-center mt-5">
+        <span class="poppins text-light-color font-size-small">Sin resultados</span>
+    </div>
+    }
+    @if(!loading && !noData){
     <div class="table-responsive">
         <table class="table table-responsive table-hover mt-5">
             <thead>
                 <tr>
                     <th scope="col" class="center-item-table">ID</th>
                     <th scope="col" class="center-item-table">Name</th>
-                    <th scope="col" class="center-item-table">Gender</th>
-                    <th scope="col" class="center-item-table">Occupation</th>
-                    <th scope="col" class="center-item-table">Address</th>
                     <th scope="col" class="center-item-table">E-mail</th>
-                    <th scope="col" class="center-item-table">Phone</th>
                 </tr>
             </thead>
             <tbody>
-                @for (parent of parents; track parent.id) {
+                @for (parent of parents; track parent.Id) {
                 <tr [routerLink]="'/admin/detail-parent'" class="clickeable">
-                    <td class="center-item-table">{{parent.id}}</td>
-                    <td class="center-item-table">{{parent.name}}</td>
-                    <td class="center-item-table">{{parent.gender}}</td>
-                    <td class="center-item-table">{{parent.occupation}}</td>
-                    <td class="center-item-table">{{parent.address}}</td>
-                    <td class="center-item-table">{{parent.email}}</td>
-                    <td class="center-item-table">{{parent.phone}}</td>
+                    <td class="center-item-table">{{parent.Id}}</td>
+                    <td class="center-item-table">{{parent.Name}} {{parent.Firs_Name}} {{parent.Last_Name}}</td>
+                    <td class="center-item-table">{{parent.Email}}</td>
                 </tr>
                 }
             </tbody>
@@ -58,4 +61,5 @@
         <p class="pagination-item fs-5 m-2">Next</p>
 
     </div>
+    }
 </div>

@@ -1,29 +1,40 @@
 import { Component } from '@angular/core';
-import { Parent } from '../../interfaces/parent';
+import { ApiResponseParent, Parent } from '../../interfaces/parent';
 import { RouterModule } from '@angular/router';
+import { ParentService } from '../../services/parent.service';
+import { LoadingComponent } from '../../components/loading/loading.component';
 
 @Component({
   selector: 'app-all-parent',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, LoadingComponent],
   templateUrl: './all-parent.component.html',
   styleUrl: './all-parent.component.scss'
 })
 export class AllParentComponent {
-  parents: Parent[] = []
+  parents: ApiResponseParent[] = []
+  loading: boolean = false;
+  noData: boolean = false;
+
+  constructor(
+    private parentService: ParentService
+  ) {
+
+  }
 
   ngOnInit() {
-    for (let i = 22; i <= 34; i++) {
-      const newItem: Parent = {
-        id: i,
-        name: 'Steve Lopez',
-        gender: 'Male',
-        occupation: 'Banker',
-        address: '59 Australia, Sydney',
-        email: 'arabagrant@gmail.com',
-        phone: '+ 123 9988568'
+    this.loading = true;
+    this.parentService.getAll().subscribe({
+      next: (response) => {
+        this.parents = response
+        if (this.parents.length > 0) {
+          this.noData = false;
+        }
+        else {
+          this.noData = true
+        }
+        this.loading = false;
       }
-      this.parents.push(newItem)
-    }
+    });
   }
 }

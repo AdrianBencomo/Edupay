@@ -17,8 +17,11 @@
 
 $primary-color: #14238A;
 $primary-color-hover: #0e1c78;
+
 $secondary-color: #D60A0B;
 $secondary-color-hover: #b00d0d;
+$secondary-color-disabled: #a74e4e;
+
 $secondary-color-hover-light: #fff1f1;
 $third-color: #263AC3;
 $green-color: #4FE397;
@@ -172,7 +175,10 @@ table tbody tr td {
 
     &:hover {
         background-color: $secondary-color-hover;
+    }
 
+    &:disabled{
+        background-color: $secondary-color-disabled;
     }
 }
 

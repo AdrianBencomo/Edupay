@@ -14,13 +14,50 @@
             <div class="col-12 col-lg-6 bg-primary-color" id="container-form">
                 <div class="d-flex align-items-center justify-content-center h-100">
                     <div id="card-login" class="card pt-4 pb-4 ps-2 pe-2">
-                        <div class="card-body">
-                            <input type="email" class="input input-control p-3 font-size-small" placeholder="Enter your email">
-                            <input type="password" class="input input-control p-3 font-size-small mt-2 mb-2" placeholder="Enter your password">
+                        <form class="card-body" #login="ngForm" (ngSubmit)="onSubmit(login)">
+
+                            <input id="email" name="email" type="email" class="input input-control p-3 font-size-small"
+                                [(ngModel)]="loginRequest.Email" #email="ngModel" required
+                                placeholder="Enter your email">
+
+                            @if(email.invalid && (email.dirty || email.touched)){
+                            @if(email.errors && email.errors['required']){
+                            <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                            }
+                            }
+
+
+                            <input id="password" name="password" type="password"
+                                class="input input-control p-3 font-size-small mt-2 mb-2"
+                                [(ngModel)]="loginRequest.Password" #password="ngModel" required
+                                placeholder="Enter your password">
+
+                            @if(password.invalid && (password.dirty || password.touched)){
+                            @if(password.errors && password.errors['required']){
+                            <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                            }
+                            }
+
                             <br>
-                            <a href="" class="link-primary font-size-small">Forgot your password?</a>
-                            <button class="button button-secondary font-size-small w-100 mt-3 pt-3 pb-3" [routerLink]="'/admin/dashboard'">SIGN IN</button>
-                        </div>
+
+                            <a href="" class="link-primary font-size-small poppins">Forgot your password?</a>
+
+                            <button class="button button-secondary font-size-small w-100 mt-3 pt-3 pb-3 d-flex justify-content-center" type="submit"
+                                [disabled]="!login.valid||loading">
+                                @if(loading){
+                                <app-loading></app-loading>
+                                }
+                                @else{
+                                <span>SIGN IN</span>
+                                }
+                            </button>
+
+                            @if(alertFailRequest){
+                            <label class="text-danger mt-2 poppins font-size-small">Error al iniciar sesión. Intentelo
+                                de nuevo</label>
+                            }
+
+                        </form>
                     </div>
                 </div>
             </div>

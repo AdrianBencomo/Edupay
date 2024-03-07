@@ -1,30 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../../interfaces/student';
+import { ApiResponseStudent, Student } from '../../interfaces/student';
 import { RouterModule } from '@angular/router';
+import { StudentService } from '../../services/student.service';
+import { LoadingComponent } from '../../components/loading/loading.component';
 
 @Component({
   selector: 'app-all-student',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, LoadingComponent],
   templateUrl: './all-student.component.html',
   styleUrl: './all-student.component.scss'
 })
 export class AllStudentComponent implements OnInit {
-  students: Student[] = []
+  students: ApiResponseStudent[] = []
+  loading: boolean = false;
+  noData: boolean = false;
+
+  constructor(
+    private studentService: StudentService
+  ) {
+
+  }
 
   ngOnInit() {
-    for (let i = 22; i <= 34; i++) {
-      const newItem: Student = {
-        id: i,
-        name: 'Daniel Lopez',
-        gender: 'Male',
-        class: 1,
-        parents: 'Steve Lopez',
-        address: '59 Australia, Sydney',
-        birthday: '02/05/2001',
-        phone: '+ 123 9988568'
+    this.loading = true;
+    this.studentService.getAll().subscribe({
+      next: (response) => {
+        this.students = response
+        if (this.students.length > 0) {
+          this.students.forEach(student => {
+            student.BirthDay = '02/05/2001'
+          })
+          this.noData = false;
+        }
+        else {
+          this.noData = true
+        }
+        this.loading = false;
       }
-      this.students.push(newItem)
-    }
+    });
   }
 }

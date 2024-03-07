@@ -7,15 +7,20 @@
     background-position: center;
 }
 
-#content{
+#content {
     margin-top: -200px;
 }
 
-#avatar{
-    // filter: drop-shadow(0px 0px 2px white);
+#avatar {
+    width: 330px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px white solid;
+    background-size: cover;
+    background-position: center;
 }
 
-.input-account{
+.input-account {
     border: 1px black solid;
     border-radius: 3px;
 }

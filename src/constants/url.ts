@@ -1,0 +1,1 @@
+export const API_URL = "https://edupay-oi22.onrender.com/api"

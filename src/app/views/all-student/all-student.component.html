@@ -22,31 +22,34 @@
             <button class="col-12 col-md-3 button button-search font-size-small mt-1">SEARCH</button>
         </div>
     </div>
+    @if(loading){
+    <div class="d-flex align-items-center justify-content-center mt-5">
+        <app-loading></app-loading>
+    </div>
+    }
+    @if(noData){
+    <div class="d-flex align-items-center justify-content-center mt-5">
+        <span class="poppins text-light-color font-size-small">Sin resultados</span>
+    </div>
+    }
+    @if(!loading && !noData){
     <div class="table-responsive">
         <table class="table table-responsive table-hover mt-5">
             <thead>
                 <tr>
                     <th scope="col" class="center-item-table">ID</th>
                     <th scope="col" class="center-item-table">Name</th>
-                    <th scope="col" class="center-item-table">Gender</th>
-                    <th scope="col" class="center-item-table">Class</th>
-                    <th scope="col" class="center-item-table">Parents</th>
-                    <th scope="col" class="center-item-table">Address</th>
+                    <th scope="col" class="center-item-table">Email</th>
                     <th scope="col" class="center-item-table">Date of Birth</th>
-                    <th scope="col" class="center-item-table">Phone</th>
                 </tr>
             </thead>
             <tbody>
-                @for (student of students; track student.id) {
+                @for (student of students; track student.Id) {
                 <tr [routerLink]="'/admin/detail-student'" class="clickeable">
-                    <td class="center-item-table">{{student.id}}</td>
-                    <td class="center-item-table">{{student.name}}</td>
-                    <td class="center-item-table">{{student.gender}}</td>
-                    <td class="center-item-table">{{student.class}}</td>
-                    <td class="center-item-table">{{student.parents}}</td>
-                    <td class="center-item-table">{{student.address}}</td>
-                    <td class="center-item-table">{{student.birthday}}</td>
-                    <td class="center-item-table">{{student.phone}}</td>
+                    <td class="center-item-table">{{student.Id}}</td>
+                    <td class="center-item-table">{{student.Name}} {{student.Firs_Name}} {{student.Last_Name}}</td>
+                    <td class="center-item-table">{{student.Email}}</td>
+                    <td class="center-item-table">{{student.BirthDay}}</td>
                 </tr>
                 }
             </tbody>
@@ -60,4 +63,5 @@
         <p class="pagination-item fs-5 m-2">Next</p>
 
     </div>
+    }
 </div>

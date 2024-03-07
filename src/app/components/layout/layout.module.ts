@@ -25,6 +25,10 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
         path: 'all-student',
         component: AllStudentComponent
       },
@@ -84,10 +88,7 @@ const routes: Routes = [
         path: 'settings',
         component: SettingsComponent
       },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
+
     ]
   }
 ]
