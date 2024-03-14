@@ -18,6 +18,7 @@ import { FormExpenseComponent } from '../../views/form-expense/form-expense.comp
 import { AllSubjectComponent } from '../../views/all-subject/all-subject.component';
 import { SettingsComponent } from '../../views/settings/settings.component';
 import { DashboardComponent } from '../../views/dashboard/dashboard.component';
+import { FormParentComponent } from '../../views/form-parent/form-parent.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'all-parent',
         component: AllParentComponent
+      },
+      {
+        path: 'add-parent',
+        component: FormParentComponent
       },
       {
         path: 'detail-parent',

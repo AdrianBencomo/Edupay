@@ -75,11 +75,11 @@ table tbody tr td {
     background-color: $third-color;
 }
 
-.bg-green-color{
+.bg-green-color {
     background-color: $green-color;
 }
 
-.bg-blue-color{
+.bg-blue-color {
     background-color: $blue-color;
 }
 
@@ -177,7 +177,7 @@ table tbody tr td {
         background-color: $secondary-color-hover;
     }
 
-    &:disabled{
+    &:disabled {
         background-color: $secondary-color-disabled;
     }
 }
@@ -258,11 +258,19 @@ table tbody tr td {
 .pagination-item {
     font-family: Poppins;
     color: #747474;
-    cursor: pointer;
+    border: none;
+    background-color: transparent;
 
     &:hover {
         color: #474747;
     }
+}
+
+.pagination-item-inactive {
+    font-family: Poppins;
+    color: #bababa;
+    border: none;
+    background-color: transparent;
 }
 
 .clickeable {

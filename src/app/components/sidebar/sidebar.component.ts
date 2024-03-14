@@ -13,6 +13,7 @@ export class SidebarComponent {
   screenWidth: number;
   isMobile: boolean;
   showStudentsModule: boolean = false;
+  showParentsModule: boolean = false;
   showTeachersModule: boolean = false;
   showAccountModule: boolean = false;
 
@@ -30,6 +31,11 @@ export class SidebarComponent {
   switchStudentsModule() {
     this.showStudentsModule = !this.showStudentsModule
   }
+
+  switchParentsModule() {
+    this.showParentsModule = !this.showParentsModule
+  }
+
 
   switchTeachersModule() {
     this.showTeachersModule = !this.showTeachersModule

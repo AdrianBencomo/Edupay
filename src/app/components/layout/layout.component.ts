@@ -4,6 +4,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { HeadbarComponent } from '../headbar/headbar.component';
 import { CommonModule } from '@angular/common';
 import { SidebarMobileComponent } from '../sidebar-mobile/sidebar-mobile.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -16,8 +17,11 @@ export class LayoutComponent {
   screenWidth: number;
   isMobile: boolean;
   showSidebar: boolean = true;
+  showMenuDropDown: boolean = false;
 
-  constructor() {
+  constructor(
+    public authService: AuthService
+  ) {
     this.screenWidth = window.innerWidth;
     this.isMobile = this.screenWidth <= 1024
   }
@@ -31,4 +35,9 @@ export class LayoutComponent {
   switchShowSidebar() {
     this.showSidebar = !this.showSidebar
   }
+
+  switchShowMenuDropDown() {
+    this.showMenuDropDown = !this.showMenuDropDown
+  }
+
 }

@@ -1,24 +1,30 @@
 <div class="content mt-4 p-4 pb-5 overflow-x-auto ">
+    <div class="d-flex justify-content-end">
+        <span class="material-symbols-outlined clickeable text-secondary-color fs-2" [routerLink]="'/admin/all-parent'">
+            close
+        </span>
+    </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-4 mt-5">
-                <img class="img-fluid" src="assets/images/parent.png">
+            <div class="col-12 col-md-5 mt-5 px-5">
+                <div id="avatar" [style.background-image]="'url(' + parent.Profile_Photo + ')'"></div>
             </div>
-            <div class="col-md-1"></div>
             <div class="col-12 col-md-7 mt-5">
-                <h3 class="text-primary-color fs-4 poppins-bold">Daniel Grant</h3>
+                <h3 class="text-primary-color fs-4 poppins-bold">{{parent.Name}} {{parent.Firs_Name}}
+                    {{parent.Last_Name}}</h3>
                 <p class="poppins fs-5 w-75 mt-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium
                     doloremque laudantium, totam rem aperiam, eaque ipsa</p>
 
                 <div class="row mt-5">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">ID Number:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">32</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Id}}</h5>
                 </div>
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Name:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Steve Lopez</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Name}} {{parent.Firs_Name}}
+                        {{parent.Last_Name}}</h5>
                 </div>
 
                 <div class="row mt-3">
@@ -37,13 +43,13 @@
                 </div>
 
                 <div class="row mt-3">
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Occupation:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Graphic Designer</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Rol:</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Rol}}</h5>
                 </div>
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">E-mail:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{'arabagrant@gmail.com'}}</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Email}}</h5>
                 </div>
 
                 <div class="row mt-3">

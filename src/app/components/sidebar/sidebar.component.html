@@ -8,8 +8,7 @@
             }
         </div>
         <div class="sidebar-body">
-            <div [routerLink]="'/admin/dashboard'" 
-            class="d-flex align-items-center text-white icon-sidebar px-3">
+            <div [routerLink]="'/admin/dashboard'" class="d-flex align-items-center text-white icon-sidebar px-3">
                 <span class="material-symbols-outlined">
                     av_timer
                 </span>
@@ -62,7 +61,7 @@
 
                     </div>
                 </div>
-                <div [routerLink]="'/admin/add-student'"
+                <!-- <div [routerLink]="'/admin/add-student'"
                     class="d-flex align-items-center justify-content-between text-white subitem-sidebar poppins px-3">
                     <div class="d-flex align-items-center">
                         @if(!isMobile){
@@ -79,7 +78,7 @@
                         </span>
                         }
                     </div>
-                </div>
+                </div> -->
                 <div [routerLink]="'/admin/promotion-student'"
                     class="d-flex align-items-center justify-content-between text-white subitem-sidebar poppins px-3">
                     <div class="d-flex align-items-center">
@@ -102,17 +101,70 @@
             </div>
             }
 
-            <div [routerLink]="'/admin/all-parent'" class="d-flex align-items-center text-white icon-sidebar px-3">
-                <span class="material-symbols-outlined">
-                    group
-                </span>
+            <div class="d-flex align-items-center justify-content-between text-white icon-sidebar px-3"
+                (click)="switchParentsModule()">
+                <div class="d-flex align-items-center">
+                    <span class="material-symbols-outlined">
+                        group
+                    </span>
+
+                    @if(!isMobile){
+                    <p class="mt-3 ms-2 poppins">
+                        Parents
+                    </p>
+                    }
+
+                </div>
                 @if(!isMobile){
-                <p class="mt-3 ms-2 poppins">
-                    Parents
-                </p>
+                <span class="material-symbols-outlined">
+                    chevron_right
+                </span>
                 }
 
             </div>
+
+            @if (showParentsModule) {
+            <div class="bg-third-color py-2">
+                <div [routerLink]="'/admin/all-parent'"
+                    class="d-flex align-items-center justify-content-between text-white subitem-sidebar poppins px-3">
+                    <div class="d-flex align-items-center">
+                        @if(!isMobile){
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                        <p class="mt-3 ms-2 poppins">
+                            All Parents
+                        </p>
+                        }
+                        @else{
+                        <span class="material-symbols-outlined">
+                            list
+                        </span>
+                        }
+
+                    </div>
+                </div>
+                <div [routerLink]="'/admin/add-parent'"
+                    class="d-flex align-items-center justify-content-between text-white subitem-sidebar poppins px-3">
+                    <div class="d-flex align-items-center">
+                        @if(!isMobile){
+                        <span class="material-symbols-outlined">
+                            chevron_right
+                        </span>
+                        <p class="mt-3 ms-2 poppins">
+                            Add Parents
+                        </p>
+                        }
+                        @else{
+                        <span class="material-symbols-outlined">
+                            add
+                        </span>
+                        }
+                    </div>
+                </div>
+            </div>
+            }
+
             <!-- <div class="d-flex align-items-center justify-content-between text-white icon-sidebar px-3"
                 (click)="switchTeachersModule()">
                 <div class="d-flex align-items-center">

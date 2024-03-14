@@ -45,12 +45,31 @@
                         <span class="fs-4 text-secondary-color ms-3 mb-2">
                             |
                         </span>
-                        <div class="d-flex align-items-center ms-3 clickeable">
+                        <div class="d-flex align-items-center ms-3 clickeable" (click)="switchShowMenuDropDown()">
                             <div id="avatar"></div>
+                            @if(!showMenuDropDown){
                             <span class="material-symbols-outlined">
                                 arrow_drop_down
                             </span>
+                            }
+                            @else{
+                            <span class="material-symbols-outlined">
+                                arrow_drop_up
+                            </span>
+                            }
+
+
                         </div>
+                        @if(showMenuDropDown){
+                        <div id="menu-dropdown" class="d-flex align-items-center">
+                            <div class="item-dropdown" (click)="authService.logOut()">
+                                <span class="material-symbols-outlined">
+                                    logout
+                                </span>
+                                <span class="poppins font-size-small">Cerrar Sesión</span>
+                            </div>
+                        </div>
+                        }
                     </div>
                 </div>
             </div>
