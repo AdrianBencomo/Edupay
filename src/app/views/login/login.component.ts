@@ -25,8 +25,8 @@ export class LoginComponent {
     public router: Router
   ) {
     this.loginRequest = {
-      Email: '',
-      Password: ''
+      email: '',
+      password: ''
     }
   }
 

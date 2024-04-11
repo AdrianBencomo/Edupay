@@ -19,17 +19,16 @@ export class SettingsComponent {
     private userService: UserService
   ) {
     this.user = {
-      Id: 0,
-      Id_Group: 0,
+      id: 0,
+      groupId: 0,
       DetailId: 0,
-      Profile_Photo: '',
-      Firs_Name: '',
-      Last_Name: '',
-      Id_tutor: 0,
-      Email: '',
-      Password: '',
-      Name: '',
-      Rol: '',
+      profilePhoto: '',
+      lastName: '',
+      tutorId: 0,
+      email: '',
+      password: '',
+      name: '',
+      role: '',
       refreshToken: ''
     }
   }

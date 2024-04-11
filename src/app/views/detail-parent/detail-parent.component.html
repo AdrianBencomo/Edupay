@@ -7,24 +7,23 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-5 mt-5 px-5">
-                <div id="avatar" [style.background-image]="'url(' + parent.Profile_Photo + ')'"></div>
+                <div id="avatar" [style.background-image]="'url(' + parent.profilePhoto + ')'"></div>
             </div>
             <div class="col-12 col-md-7 mt-5">
-                <h3 class="text-primary-color fs-4 poppins-bold">{{parent.Name}} {{parent.Firs_Name}}
-                    {{parent.Last_Name}}</h3>
+                <h3 class="text-primary-color fs-4 poppins-bold">{{parent.name}} {{parent.lastName}}</h3>
                 <p class="poppins fs-5 w-75 mt-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium
                     doloremque laudantium, totam rem aperiam, eaque ipsa</p>
 
                 <div class="row mt-5">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">ID Number:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Id}}</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.id}}</h5>
                 </div>
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Name:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Name}} {{parent.Firs_Name}}
-                        {{parent.Last_Name}}</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.name}} {{parent.lastName}}
+                    </h5>
                 </div>
 
                 <div class="row mt-3">
@@ -34,7 +33,7 @@
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Phone:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">+ 123 9988568</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.phone}}</h5>
                 </div>
 
                 <div class="row mt-3">
@@ -44,17 +43,17 @@
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Rol:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Rol}}</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.role}}</h5>
                 </div>
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">E-mail:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.Email}}</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.email}}</h5>
                 </div>
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Address:</h5>
-                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">59 Merida, Yucatan</h5>
+                    <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.address}}</h5>
                 </div>
             </div>
         </div>

@@ -40,14 +40,18 @@
                     <th scope="col" class="center-item-table">ID</th>
                     <th scope="col" class="center-item-table">Name</th>
                     <th scope="col" class="center-item-table">E-mail</th>
+                    <th scope="col" class="center-item-table">Ocupation</th>
+
                 </tr>
             </thead>
             <tbody>
-                @for (parent of parents_paginated; track parent.Id) {
+                @for (parent of parents_paginated; track parent.id) {
                 <tr (click)="goToDetail(parent)" class="clickeable">
-                    <td class="center-item-table">{{parent.Id}}</td>
-                    <td class="center-item-table">{{parent.Name}} {{parent.Firs_Name}} {{parent.Last_Name}}</td>
-                    <td class="center-item-table">{{parent.Email}}</td>
+                    <td class="center-item-table">{{parent.id}}</td>
+                    <td class="center-item-table">{{parent.name}} {{parent.lastName}}</td>
+                    <td class="center-item-table">{{parent.email}}</td>
+                    <td class="center-item-table">{{parent.occupation}}</td>
+
                 </tr>
                 }
             </tbody>

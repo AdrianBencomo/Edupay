@@ -44,11 +44,11 @@
                 </tr>
             </thead>
             <tbody>
-                @for (student of students_paginated; track student.Id) {
+                @for (student of students_paginated; track student.id) {
                 <tr [routerLink]="'/admin/detail-student'" class="clickeable">
-                    <td class="center-item-table">{{student.Id}}</td>
-                    <td class="center-item-table">{{student.Name}} {{student.Firs_Name}} {{student.Last_Name}}</td>
-                    <td class="center-item-table">{{student.Email}}</td>
+                    <td class="center-item-table">{{student.id}}</td>
+                    <td class="center-item-table">{{student.name}} {{student.lastName}}</td>
+                    <td class="center-item-table">{{student.email}}</td>
                     <td class="center-item-table">{{student.BirthDay}}</td>
                 </tr>
                 }

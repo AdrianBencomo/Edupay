@@ -1,14 +1,13 @@
 export interface User {
-    Id: number,
+    id: number,
     DetailId: number
-    Id_tutor: number,
-    Id_Group: number,
-    Name: string,
-    Email: string,
-    Password: string,
-    Profile_Photo: string,
-    Rol: string,
+    tutorId: number,
+    groupId: number,
+    name: string,
+    email: string,
+    password: string,
+    profilePhoto: string,
+    role: string,
     refreshToken: string,
-    Firs_Name: string
-    Last_Name: string,
+    lastName: string,
 }
