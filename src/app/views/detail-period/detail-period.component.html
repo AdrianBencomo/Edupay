@@ -1,0 +1,84 @@
+<div class="content mt-4 p-4 pb-5 overflow-x-auto ">
+    <div class="d-flex justify-content-end">
+        <span class="material-symbols-outlined clickeable text-secondary-color fs-2" [routerLink]="'/admin/all-period'">
+            close
+        </span>
+    </div>
+    <div class="container-fluid">
+        @if(loading){
+        <div class="d-flex align-items-center justify-content-center mt-5">
+            <app-loading></app-loading>
+        </div>
+        }
+        @else{
+        <div class="row">
+            <div class="col-12 mt-5">
+                <h3 class="text-primary-color fs-4 poppins-bold">{{period.name}} </h3>
+                <div class="row mt-3">
+                    <h5 class="col-6 col-md-2 poppins fw-bold fs-5">Price:</h5>
+                    <h5 class="col-6 col-md-6 poppins fw-bold fs-5">
+                        {{period.price}}
+                    </h5>
+                </div>
+                <div class="row mt-2">
+                    <h5 class="col-6 col-md-2 poppins fw-bold fs-5">Start Date:</h5>
+                    <h5 class="col-6 col-md-6 poppins fw-bold fs-5">
+                        {{period.startDate.slice(8,10)}}-{{period.startDate.slice(5,7)}}-{{period.startDate.slice(0,4)}}
+                    </h5>
+                </div>
+                <div class="row mt-2">
+                    <h5 class="col-6 col-md-2 poppins fw-bold fs-5">End Date:</h5>
+                    <h5 class="col-6 col-md-6 poppins fw-bold fs-5">
+                        {{period.startDate.slice(8,10)}}-{{period.startDate.slice(5,7)}}-{{period.startDate.slice(0,4)}}
+                    </h5>
+                </div>
+
+
+
+                <div class="row mt-4">
+                    <h5 class="col-6 col-md-12 poppins fw-bold fs-5 text-secondary-color">Grados:</h5>
+                    @if(period.grades.length > 0){
+                    @for (grade of period.grades; track grade.id) {
+                    <div class="row align-items-center mt-2 ms-1">
+                        <div class="col-6 col-md-2 col-lg-2 mt-2">
+                            <h6 class="poppins fw-bold fs-5 text-muted"> - {{grade.name}}</h6>
+                        </div>
+                        <div class="col-6 col-md-2 col-lg-2 mt-2">
+                            <span class="material-symbols-outlined clickeable text-primary-color fs-3"
+                                [routerLink]="'/admin/detail-grade/'+grade.id">
+                                chevron_right
+                            </span>
+                        </div>
+                    </div>
+                    }
+                    }
+                    <form class="row align-items-center ms-1 mt-2 p-0" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                        <div class="col-10 col-md-2">
+                            <input type="text" id="name" name="name"
+                                class="input-filter w-100 font-size-small px-3 py-2" [(ngModel)]="gradeRequest.name"
+                                placeholder="Nuevo Grado" #name="ngModel" required>
+                        </div>
+                        <div class="col-2 col-md-4">
+                            <button class="button button-default-primary ms-3" type="submit"
+                                [disabled]="form.invalid||loadingRequest">
+                                <span class="material-symbols-outlined fs-2">
+                                    save
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    @if(alertFailRequest){
+                    <p class="roboto-bold fs-small text-danger mt-3">Ocurrió un error al registrar el grado. Intentelo
+                        de nuevo</p>
+                    }
+                    <!-- <div class="col-6">
+                        <button class="button button-primary py-2 px-5 mt-4"
+                            [routerLink]="'/admin/add-student/'+period.id">Asignar grado</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+</div>

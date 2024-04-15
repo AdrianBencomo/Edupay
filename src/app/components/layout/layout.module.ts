@@ -19,6 +19,12 @@ import { AllSubjectComponent } from '../../views/all-subject/all-subject.compone
 import { SettingsComponent } from '../../views/settings/settings.component';
 import { DashboardComponent } from '../../views/dashboard/dashboard.component';
 import { FormParentComponent } from '../../views/form-parent/form-parent.component';
+import { AllPeriodComponent } from '../../views/all-period/all-period.component';
+import { AllGradeComponent } from '../../views/all-grade/all-grade.component';
+import { AllGroupComponent } from '../../views/all-group/all-group.component';
+import { FormPeriodComponent } from '../../views/form-period/form-period.component';
+import { DetailPeriodComponent } from '../../views/detail-period/detail-period.component';
+import { DetailGradeComponent } from '../../views/detail-grade/detail-grade.component';
 
 const routes: Routes = [
   {
@@ -34,7 +40,7 @@ const routes: Routes = [
         component: AllStudentComponent
       },
       {
-        path: 'add-student',
+        path: 'add-student/:idParent',
         component: FormStudentComponent
       },
       {
@@ -70,6 +76,14 @@ const routes: Routes = [
         component: DetailTeacherComponent
       },
       {
+        path: 'detail-period/:id',
+        component: DetailPeriodComponent
+      },
+      {
+        path: 'detail-grade/:id',
+        component: DetailGradeComponent
+      },
+      {
         path: 'fees-group',
         component: FeesGroupComponent
       },
@@ -92,6 +106,22 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SettingsComponent
+      },
+      {
+        path: 'all-period',
+        component: AllPeriodComponent
+      },
+      {
+        path: 'add-period',
+        component: FormPeriodComponent
+      },
+      {
+        path: 'all-grade',
+        component: AllGradeComponent
+      },
+      {
+        path: 'all-group',
+        component: AllGroupComponent
       },
 
     ]

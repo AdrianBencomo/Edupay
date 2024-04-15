@@ -22,7 +22,7 @@ export class AllStudentComponent implements OnInit {
   studentsExxample: ApiResponseStudent[] = [
     {
       id: 1,
-      BirthDay: '23/08/2002',
+      address: "Av 121",
       DetailId: 1,
       groupId: 1,
       tutorId: 1,
@@ -36,7 +36,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 2,
-      BirthDay: "15/04/2003",
+      address: "Av 121",
       DetailId: 2,
       groupId: 1,
       tutorId: 2,
@@ -50,7 +50,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 3,
-      BirthDay: "10/11/2004",
+      address: "Av 121",
       DetailId: 3,
       groupId: 1,
       tutorId: 3,
@@ -64,7 +64,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 4,
-      BirthDay: "03/06/2005",
+      address: "Av 121",
       DetailId: 4,
       groupId: 1,
       tutorId: 4,
@@ -78,7 +78,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 5,
-      BirthDay: "28/09/2006",
+      address: "Av 121",
       DetailId: 5,
       groupId: 1,
       tutorId: 5,
@@ -92,7 +92,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 6,
-      BirthDay: "11/02/2007",
+      address: "Av 121",
       DetailId: 6,
       groupId: 1,
       tutorId: 6,
@@ -106,7 +106,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 7,
-      BirthDay: "19/07/2008",
+      address: "Av 121",
       DetailId: 7,
       groupId: 1,
       tutorId: 7,
@@ -120,7 +120,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 8,
-      BirthDay: "22/10/2009",
+      address: "Av 121",
       DetailId: 8,
       groupId: 1,
       tutorId: 8,
@@ -134,7 +134,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 9,
-      BirthDay: "07/03/2010",
+      address: "Av 121",
       DetailId: 9,
       groupId: 1,
       tutorId: 9,
@@ -148,7 +148,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 10,
-      BirthDay: "30/08/2011",
+      address: "Av 121",
       DetailId: 10,
       groupId: 1,
       tutorId: 10,
@@ -162,7 +162,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 11,
-      BirthDay: "14/01/2012",
+      address: "Av 121",
       DetailId: 11,
       groupId: 1,
       tutorId: 11,
@@ -176,7 +176,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 12,
-      BirthDay: "05/06/2013",
+      address: "Av 121",
       DetailId: 12,
       groupId: 1,
       tutorId: 12,
@@ -190,7 +190,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 13,
-      BirthDay: "18/11/2014",
+      address: "Av 121",
       DetailId: 13,
       groupId: 1,
       tutorId: 13,
@@ -204,7 +204,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 14,
-      BirthDay: "29/04/2015",
+      address: "Av 121",
       DetailId: 14,
       groupId: 1,
       tutorId: 14,
@@ -218,7 +218,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 15,
-      BirthDay: "02/09/2016",
+      address: "Av 121",
       DetailId: 15,
       groupId: 1,
       tutorId: 15,
@@ -232,7 +232,7 @@ export class AllStudentComponent implements OnInit {
     },
     {
       id: 16,
-      BirthDay: "09/12/2017",
+      address: "Av 121",
       DetailId: 16,
       groupId: 1,
       tutorId: 16,
@@ -268,9 +268,6 @@ export class AllStudentComponent implements OnInit {
       next: (response) => {
         this.students = response
         if (this.students.length > 0) {
-          this.students.forEach(student => {
-            student.BirthDay = '02/05/2001'
-          })
           this.noData = false;
           this.students_paginated = [...this.students]
           this.pagination.total_pages = Math.ceil(this.students.length / this.pagination.per_page)

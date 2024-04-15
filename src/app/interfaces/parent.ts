@@ -12,7 +12,7 @@ export interface Parent {
 }
 
 export interface ApiResponseParent extends User {
-    TutorOf: ApiResponseStudent
+    tutorados: ApiResponseStudent[]
     occupation: string,
     address: string,
     phone: string,

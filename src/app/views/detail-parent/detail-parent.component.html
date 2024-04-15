@@ -36,10 +36,10 @@
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.phone}}</h5>
                 </div>
 
-                <div class="row mt-3">
+                <!-- <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Religion:</h5>
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Islam</h5>
-                </div>
+                </div> -->
 
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Rol:</h5>
@@ -54,6 +54,30 @@
                 <div class="row mt-3">
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">Address:</h5>
                     <h5 class="col-12 col-md-6 poppins fw-bold fs-5">{{parent.address}}</h5>
+                </div>
+
+                <div class="row mt-4">
+                    @if(parent.tutorados.length > 0){
+                    <h5 class="col-12 col-md-12 poppins fw-bold fs-5 text-secondary-color">Tutor de:</h5>
+                    @for (student of parent.tutorados; track student.id) {
+                    <div class="row align-items-center mt-2 ms-3">
+                        <div class="col-12 col-md-2 col-lg-2 mt-1">
+                            <div class="avatar-small" [style.background-image]="'url(' + student.profilePhoto + ')'">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-10 col-lg-10 mt-2">
+                            <h6 class="poppins fw-bold font-size-small text-muted">{{student.name}}
+                                {{student.lastName}} ({{student.email}})</h6>
+                        </div>
+
+
+                    </div>
+                    }
+                    }
+                    <div class="col-6">
+                        <button class="button button-primary py-2 px-5 mt-4"
+                            [routerLink]="'/admin/add-student/'+parent.id">Asignar estudiante</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,6 +15,7 @@ export class SidebarComponent {
   showStudentsModule: boolean = false;
   showParentsModule: boolean = false;
   showTeachersModule: boolean = false;
+  showAcademicModule: boolean = false;
   showAccountModule: boolean = false;
 
   constructor() {
@@ -39,6 +40,10 @@ export class SidebarComponent {
 
   switchTeachersModule() {
     this.showTeachersModule = !this.showTeachersModule
+  }
+
+  switchAcademicModule() {
+    this.showAcademicModule = !this.showAcademicModule
   }
 
   switchAccountModule() {

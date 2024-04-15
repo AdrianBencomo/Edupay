@@ -1,0 +1,97 @@
+<div class="content mt-4 p-4 pb-5 overflow-x-auto ">
+    <div class="d-flex justify-content-end">
+        <span class="material-symbols-outlined clickeable text-secondary-color fs-2"
+            [routerLink]="'/admin/detail-period/'+grade.periodId">
+            close
+        </span>
+    </div>
+    <div class="container-fluid">
+        @if(loading){
+        <div class="d-flex align-items-center justify-content-center mt-5">
+            <app-loading></app-loading>
+        </div>
+        }
+        @else{
+        <div class="row">
+            <div class="col-12 mt-5">
+                <h3 class="text-primary-color fs-4 poppins-bold">{{grade.name}} </h3>
+                <div class="row mt-3">
+                    <h5 class="col-6 col-md-2 poppins fw-bold fs-5">Period Name:</h5>
+                    <h5 class="col-6 col-md-6 poppins fw-bold fs-5">
+                        {{grade.period?.name}}
+                    </h5>
+                </div>
+
+                <!-- <div class="row mt-2">
+                    <h5 class="col-6 col-md-2 poppins fw-bold fs-5">Start Date:</h5>
+                    <h5 class="col-6 col-md-6 poppins fw-bold fs-5">
+                        {{grade.startDate.slice(8,10)}}-{{grade.startDate.slice(5,7)}}-{{grade.startDate.slice(0,4)}}
+                    </h5>
+                </div>
+                <div class="row mt-2">
+                    <h5 class="col-6 col-md-2 poppins fw-bold fs-5">End Date:</h5>
+                    <h5 class="col-6 col-md-6 poppins fw-bold fs-5">
+                        {{grade.startDate.slice(8,10)}}-{{grade.startDate.slice(5,7)}}-{{grade.startDate.slice(0,4)}}
+                    </h5>
+                </div> -->
+
+
+
+                <div class="row mt-4">
+                    <h5 class="col-6 col-md-12 poppins fw-bold fs-5 text-secondary-color">Grupos:</h5>
+                    @if(grade.groups.length > 0){
+                    <div class="col-12">
+                        <table class="table table-responsive table-hover mt-2">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="center-item-table">Name</th>
+                                    <th scope="col" class="center-item-table">Capacity</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (group of grade.groups; track group.id) {
+                                <tr>
+                                    <td class="center-item-table">{{group.name}} </td>
+                                    <td class="center-item-table">{{group.capacity}}</td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    }
+                    <form class="row align-items-center ms-1 mt-2 p-0" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                        <div class="col-5 col-md-2">
+                            <input type="text" id="name" name="name"
+                                class="input-filter w-100 font-size-small px-3 py-2" [(ngModel)]="groupRequest.name"
+                                placeholder="Nuevo Grupo" #name="ngModel" required>
+                        </div>
+                        <div class="col-5 col-md-2">
+                            <input type="number" id="capacity" name="capacity"
+                                class="input-filter w-100 font-size-small px-3 py-2" [(ngModel)]="groupRequest.capacity"
+                                placeholder="Capacidad" #capacity="ngModel" required [min]=1>
+                        </div>
+                        <div class="col-2 col-md-4">
+                            <button class="button button-default-primary ms-3" type="submit"
+                                [disabled]="form.invalid||loadingRequest">
+                                <span class="material-symbols-outlined fs-2">
+                                    save
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    @if(alertFailRequest){
+                    <p class="roboto-bold fs-small text-danger mt-3">Ocurrió un error al registrar el grupo. Intentelo
+                        de nuevo</p>
+                    }
+                    <!-- <div class="col-6">
+                        <button class="button button-primary py-2 px-5 mt-4"
+                            [routerLink]="'/admin/add-student/'+grade.id">Asignar grado</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+</div>

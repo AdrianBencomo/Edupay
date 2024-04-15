@@ -31,20 +31,7 @@ export class DetailParentComponent {
       occupation: '',
       address: '',
       phone: '',
-      TutorOf: {
-        id: 0,
-        BirthDay: '',
-        DetailId: 0,
-        groupId: 0,
-        tutorId: 0,
-        name: '',
-        email: '',
-        password: '',
-        profilePhoto: '',
-        lastName: '',
-        role: '',
-        refreshToken: ''
-      }
+      tutorados: []
     }
   }
 

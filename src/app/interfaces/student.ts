@@ -12,5 +12,19 @@ export interface Student {
 }
 
 export interface ApiResponseStudent extends User {
-    BirthDay: string,
+    address: string,
+}
+
+export interface ApiRequestStudent{
+    name: string,
+    lastName: string
+    email: string,
+    password: string,
+    role: string,
+    image: string,
+    occupation: string,
+    address: string,
+    phone: string,
+    groupId: number,
+    tutorId: number,
 }
