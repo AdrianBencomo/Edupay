@@ -11,66 +11,156 @@
     </p>
 </div>
 <div class="content mt-4 p-4 overflow-x-auto">
-    <div class="container-fluid">
-        <h3 class="mt-5 poppins fs-4 fw-bold">Add New Parent</h3>
+    <form class="container-fluid" #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <h3 class="mt-5 poppins fs-4 fw-bold">Add New Parents</h3>
         <div class="row align-items-center mt-3">
             <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
-                <label for="fathers_name" class="poppins font-size-small">Father's Name</label>
+                <label for="name" class="poppins font-size-small">Name *</label>
                 <br>
-                <input type="text" id="fathers_name" class="input-filter w-100 font-size-small px-3 py-2">
+                <input type="text" id="name" name="name" class="input-filter w-100 font-size-small px-3 py-2"
+                    [(ngModel)]="parentRequest.name" #name="ngModel" required>
+
+                @if(name.invalid && (name.dirty || name.touched)){
+                @if(name.errors && name.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
             </div>
             <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
-                <label for="mothers_name" class="poppins font-size-small">Mother's Name</label>
+                <label for="lastName" class="poppins font-size-small">Last Name *</label>
                 <br>
-                <input type="text" id="mothers_name" class="input-filter w-100 font-size-small px-3 py-2">
+                <input type="text" id="lastName" name="lastName" class="input-filter w-100 font-size-small px-3 py-2"
+                    [(ngModel)]="parentRequest.lastName" #lastName="ngModel" required>
+
+                @if(lastName.invalid && (lastName.dirty || lastName.touched)){
+                @if(lastName.errors && lastName.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
+
             </div>
             <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
-                <label for="email" class="poppins font-size-small">Email</label>
+                <label for="phone" class="poppins font-size-small">Phone *</label>
                 <br>
-                <input type="email" id="email" class="input-filter w-100 font-size-small px-3 py-2">
+                <input type="text" id="phone" name="phone" class="input-filter w-100 font-size-small px-3 py-2"
+                    [(ngModel)]="parentRequest.phone" #phone="ngModel" required>
+
+                @if(phone.invalid && (phone.dirty || phone.touched)){
+                @if(phone.errors && phone.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
             </div>
-            <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
-                <label for="phone" class="poppins font-size-small">Phone</label>
+            <div class="col-12 col-md-3 col-lg-3 form-group mt-2">
+                <label for="occupation" class="poppins font-size-small">Occupation *</label>
                 <br>
-                <input type="number" id="phone" class="input-filter w-100 font-size-small px-3 py-2">
+                <input type="text" id="occupation" name="occupation"
+                    class="input-filter w-100 font-size-small px-3 py-2" [(ngModel)]="parentRequest.occupation"
+                    #occupation="ngModel" required>
+
+                @if(occupation.invalid && (occupation.dirty || occupation.touched)){
+                @if(occupation.errors && occupation.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
             </div>
+            <!-- <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
+                <label for="groupId" class="poppins font-size-small">Grupo *</label>
+                <br>
+                <select id="groupId" name="groupId" class="input-filter w-100 font-size-small px-3 py-2"
+                    [(ngModel)]="parentRequest.groupId" #groupId="ngModel" required>
+                    <option [value]="0" disabled selected>Please Select Group</option>
+                    @for (group of groups; track group.id) {
+                    <option [value]="group.id">{{group.grade?.name}}-{{group.name}} ({{group.grade?.period?.name}}
+                        {{group.grade?.period?.startDate?.slice(0,4)}}-{{group.grade?.period?.endDate?.slice(0,4)}})
+                    </option>
+                    }
+                </select>
+
+                @if(groupId.invalid && (groupId.dirty || groupId.touched)){
+                @if(groupId.errors && groupId.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
+            </div> -->
+
         </div>
         <div class="row align-items-center mt-3">
-            <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
-                <label for="fathers_occupation" class="poppins font-size-small">Father's Occupation</label>
-                <br>
-                <input type="text" id="fathers_occupation" class="input-filter w-100 font-size-small px-3 py-2">
-            </div>
-            <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
+            <div class="col-12 col-md-3 col-lg-4 form-group mt-2">
                 <label for="address" class="poppins font-size-small">Address *</label>
                 <br>
-                <input type="text" id="address" class="input-filter w-100 font-size-small px-3 py-2">
-            </div>
-            <div class="col-12 col-md-4 col-lg-3 form-group mt-2">
-                <label for="anp_religion" class="poppins font-size-small">Religion *</label>
-                <br>
-                <select id="anp_religion" class="input-filter w-100 font-size-small px-3 py-2">
-                    <option value="" disabled selected>Please Select Religion</option>
-                </select>
-            </div>
-        </div>
-    </div>
+                <input type="text" id="address" name="address" class="input-filter w-100 font-size-small px-3 py-2"
+                    [(ngModel)]="parentRequest.address" #address="ngModel" required>
 
-    <div class="container-fluid">
-        <div class="d-block d-md-flex align-items-center mt-5">
-            <div id="image-preview"></div>
-            <div class="form-group ms-3 mt-3">
-                <label for="student_photo" class="poppins font-size-small m-0 p-0">Upload Parent Photo (150px X
-                    150px)</label>
-                <br>
-                <input type="file" id="student_photo" class="m-0 p-0">
+                @if(address.invalid && (address.dirty || address.touched)){
+                @if(address.errors && address.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
             </div>
+
+            <div class="col-12 col-md-3 col-lg-4 form-group mt-2">
+                <label for="email" class="poppins font-size-small">Email *</label>
+                <br>
+                <input type="email" id="email" name="email" class="input-filter w-100 font-size-small px-3 py-2"
+                    [(ngModel)]="parentRequest.email" #email="ngModel" required>
+
+                @if(email.invalid && (email.dirty || email.touched)){
+                @if(email.errors && email.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
+            </div>
+            <div class="col-12 col-md-3 col-lg-4 form-group mt-2">
+                <label for="password" class="poppins font-size-small">Password *</label>
+                <br>
+                <input type="password" id="password" name="password"
+                    class="input-filter w-100 font-size-small px-3 py-2" [(ngModel)]="parentRequest.password"
+                    #password="ngModel" required>
+
+                @if(password.invalid && (password.dirty || password.touched)){
+                @if(password.errors && password.errors['required']){
+                <label class="text-danger poppins font-size-small">Este campo es requerido.</label>
+                }
+                }
+            </div>
+
         </div>
-        <div class="d-flex mt-5">
-            <button class="button button-secondary py-2 px-5">Save</button>
-            <button class="button button-primary py-2 px-5 ms-3">Reset</button>
+
+        <div class="container-fluid">
+            <div class="d-block d-md-flex align-items-center mt-5">
+                <div id="image-preview"></div>
+                <div class="form-group ms-3 mt-3">
+                    <label for="image" class="poppins font-size-small m-0 p-0">Upload Student Photo (150px X
+                        150px)</label>
+                    <br>
+                    <input type="file" id="image" name="image" class="m-0 p-0" (change)="getFile($event)" accept=".png"
+                        [(ngModel)]="parentRequest.image" #image="ngModel" required>
+                </div>
+            </div>
+            <div class="d-flex mt-5">
+                <button class="button button-secondary py-2 px-5 d-flex justify-content-center" type="submit"
+                    [disabled]="!form.valid||loading">
+                    @if(loading){
+                    <app-loading></app-loading>
+                    }
+                    @else{
+                    <span>Save</span>
+                    }
+                </button>
+                <button class="button button-primary py-2 px-5 ms-3" type="button"
+                    (click)="restoreEntityAndForm()">Reset</button>
+            </div>
+            @if(alertFailRequest){
+            <p class="roboto-bold fs-small text-danger mt-3">Ocurrió un error o el correo ya esta en uso, intente con
+                otro.</p>
+            }
         </div>
-    </div>
+    </form>
+
+
+
+
 
 
 </div>

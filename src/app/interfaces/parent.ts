@@ -17,3 +17,17 @@ export interface ApiResponseParent extends User {
     address: string,
     phone: string,
 }
+
+export interface ApiRequestParent{
+    name: string,
+    lastName: string
+    email: string,
+    password: string,
+    role: string,
+    image: string,
+    occupation: string,
+    address: string,
+    phone: string,
+    groupId: number,
+    tutorId: number,
+}
