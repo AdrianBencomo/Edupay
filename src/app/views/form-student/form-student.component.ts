@@ -90,7 +90,7 @@ export class FormStudentComponent {
       next: (response) => {
         this.alertFailRequest = false;
         this.loading = false;
-        this.router.navigate(['/admin/all-parent'], { relativeTo: this.route });
+        this.router.navigate(['/admin/all-student'], { relativeTo: this.route });
       },
       error: (e) => {
         this.alertFailRequest = true;

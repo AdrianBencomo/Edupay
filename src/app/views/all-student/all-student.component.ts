@@ -243,7 +243,147 @@ export class AllStudentComponent implements OnInit {
       lastName: "Williams",
       role: "",
       refreshToken: ""
-    }
+    },
+     {
+    id: 17,
+    address: "Calle 54",
+    DetailId: 17,
+    groupId: 1,
+    tutorId: 17,
+    name: "Michael",
+    email: "michael@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Johnson",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 18,
+    address: "Rua 33",
+    DetailId: 18,
+    groupId: 1,
+    tutorId: 18,
+    name: "Sophia",
+    email: "sophia@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Martinez",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 19,
+    address: "Via Roma",
+    DetailId: 19,
+    groupId: 1,
+    tutorId: 19,
+    name: "Alexander",
+    email: "alexander@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Garcia",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 20,
+    address: "Avenue des Champs-Élysées",
+    DetailId: 20,
+    groupId: 1,
+    tutorId: 20,
+    name: "Emma",
+    email: "emma@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Lopez",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 21,
+    address: "Broadway",
+    DetailId: 21,
+    groupId: 1,
+    tutorId: 21,
+    name: "William",
+    email: "william@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Rodriguez",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 22,
+    address: "Mannerheimintie",
+    DetailId: 22,
+    groupId: 1,
+    tutorId: 22,
+    name: "Olivia",
+    email: "olivia@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Gonzalez",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 23,
+    address: "Paseo de la Reforma",
+    DetailId: 23,
+    groupId: 1,
+    tutorId: 23,
+    name: "James",
+    email: "james@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Hernandez",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 24,
+    address: "Jalan Sudirman",
+    DetailId: 24,
+    groupId: 1,
+    tutorId: 24,
+    name: "Isabella",
+    email: "isabella@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Smith",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 25,
+    address: "Nile Street",
+    DetailId: 25,
+    groupId: 1,
+    tutorId: 25,
+    name: "Liam",
+    email: "liam@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Nguyen",
+    role: "",
+    refreshToken: ""
+  },
+  {
+    id: 26,
+    address: "Karl Johans gate",
+    DetailId: 26,
+    groupId: 1,
+    tutorId: 26,
+    name: "Mia",
+    email: "mia@example.com",
+    password: "",
+    profilePhoto: "",
+    lastName: "Kim",
+    role: "",
+    refreshToken: ""
+  }
   ]
 
   constructor(
@@ -269,14 +409,14 @@ export class AllStudentComponent implements OnInit {
         this.students = response
         if (this.students.length > 0) {
           this.noData = false;
-          this.students_paginated = [...this.students]
+          this.students_paginated = [...this.students.reverse()]
           this.pagination.total_pages = Math.ceil(this.students.length / this.pagination.per_page)
           this.pagination.last_page = this.pagination.total_pages
           this.calculatePage(this.pagination.current_page)
         }
         else {
           this.students = this.studentsExxample
-          this.students_paginated = [...this.students]
+          this.students_paginated = [...this.students.reverse()]
           this.pagination.total_pages = Math.ceil(this.students.length / this.pagination.per_page)
           this.pagination.last_page = this.pagination.total_pages
           this.calculatePage(this.pagination.current_page)
