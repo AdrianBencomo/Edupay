@@ -13,9 +13,10 @@ export interface Student {
 
 export interface ApiResponseStudent extends User {
     address: string,
+    phone: string,
 }
 
-export interface ApiRequestStudent{
+export interface ApiRequestStudent {
     name: string,
     lastName: string
     email: string,

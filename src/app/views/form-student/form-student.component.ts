@@ -39,6 +39,7 @@ export class FormStudentComponent {
 
   constructor(
     private userService: UserService,
+    private studentService: StudentService,
     private periodService: PeriodService,
     private gradeService: GradeService,
     private groupService: GroupService,
@@ -76,7 +77,6 @@ export class FormStudentComponent {
           this.groups = responseGroups
           responseGrades.forEach(grade => grade.period = responsePeriods.find(period => grade.periodId == period.id))
           this.groups.forEach(group => group.grade = responseGrades.find(grade => group.gradeId == grade.id))
-          console.log(this.groups)
         })
       })
     })
@@ -90,7 +90,8 @@ export class FormStudentComponent {
       next: (response) => {
         this.alertFailRequest = false;
         this.loading = false;
-        this.router.navigate(['/admin/all-student'], { relativeTo: this.route });
+        this.studentService.saveEntityInStorage(response)
+        this.router.navigate(['/admin/detail-student'], { relativeTo: this.route });
       },
       error: (e) => {
         this.alertFailRequest = true;

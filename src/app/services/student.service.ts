@@ -19,4 +19,12 @@ export class StudentService {
     return this.http.get<ApiResponseStudent[]>(`${API_URL}/AllChildrens`)
   }
 
+  public saveEntityInStorage(entity: ApiResponseStudent) {
+    localStorage.setItem("student", JSON.stringify(entity))
+  }
+
+  public getEntityInStorage() {
+    return JSON.parse(localStorage.getItem("student") ?? '')
+  }
+
 }

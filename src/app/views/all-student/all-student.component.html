@@ -45,7 +45,7 @@
             </thead>
             <tbody>
                 @for (student of students_paginated; track student.id) {
-                <tr [routerLink]="'/admin/detail-student'" class="clickeable">
+                <tr (click)="goToDetail(student)" class="clickeable">
                     <td class="center-item-table">{{student.id}}</td>
                     <td class="center-item-table">{{student.name}} {{student.lastName}}</td>
                     <td class="center-item-table">{{student.email}}</td>

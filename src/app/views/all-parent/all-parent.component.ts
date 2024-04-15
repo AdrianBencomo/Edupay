@@ -45,7 +45,7 @@ export class AllParentComponent {
         this.parents = response
         if (this.parents.length > 0) {
           this.noData = false;
-          this.parents_paginated = [...this.parents]
+          this.parents_paginated = [...this.parents.reverse()]
           console.log(this.parents_paginated)
           this.pagination.total_pages = Math.ceil(this.parents.length / this.pagination.per_page)
           this.pagination.last_page = this.pagination.total_pages
