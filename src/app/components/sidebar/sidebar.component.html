@@ -144,7 +144,7 @@
 
                     </div>
                 </div>
-                <div [routerLink]="'/admin/add-parent'"
+                <div (click)="goToAddParent()"
                     class="d-flex align-items-center justify-content-between text-white subitem-sidebar poppins px-3">
                     <div class="d-flex align-items-center">
                         @if(!isMobile){

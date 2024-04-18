@@ -8,6 +8,8 @@ import { GradeService } from '../../services/grade.service';
 import { GroupService } from '../../services/group.service';
 import { ApiResponseGroup } from '../../interfaces/group';
 import { ApiRequestParent } from '../../interfaces/parent';
+import { ParentService } from '../../services/parent.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-form-parent',
@@ -34,9 +36,11 @@ export class FormParentComponent {
   loading: boolean = false;
   groups: ApiResponseGroup[]
   formData: FormData = new FormData()
+  isUpdate: boolean;
 
   constructor(
     private userService: UserService,
+    private parentService: ParentService,
     private periodService: PeriodService,
     private gradeService: GradeService,
     private groupService: GroupService,
@@ -45,6 +49,24 @@ export class FormParentComponent {
   ) {
     this.groups = []
     this.restoreEntityAndForm()
+    this.isUpdate = this.parentService.existsEntityInStorage()
+    if (this.isUpdate) {
+      const updateEntity = this.parentService.getEntityInStorage()
+      this.parentRequest = {
+        name: updateEntity.name,
+        lastName: updateEntity.lastName,
+        email: updateEntity.email,
+        password: updateEntity.password,
+        role: 'FATHER',
+        occupation: updateEntity.occupation,
+        address: updateEntity.address,
+        phone: updateEntity.phone,
+        groupId: updateEntity.groupId,
+        tutorId: updateEntity.tutorId,
+        profilePhoto: updateEntity.profilePhoto,
+        image: updateEntity.image,
+      }
+    }
   }
 
   restoreEntityAndForm() {
@@ -62,9 +84,8 @@ export class FormParentComponent {
       groupId: 0,
       tutorId: 0
     }
-    this.route.params.subscribe(params => {
-      this.parentRequest.tutorId = Number(params['idParent']);
-    });
+
+
   }
 
   ngOnInit() {
@@ -83,18 +104,36 @@ export class FormParentComponent {
   onSubmit(form: NgForm) {
     this.loading = true;
     this.alertFailRequest = false;
-    this.generateFormData()
-    this.userService.create(this.formData).subscribe({
-      next: (response) => {
-        this.alertFailRequest = false;
-        this.loading = false;
-        this.router.navigate(['/admin/all-parent'], { relativeTo: this.route });
-      },
-      error: (e) => {
-        this.alertFailRequest = true;
-        this.loading = false;
-      }
-    })
+    if (this.isUpdate) {
+      const updateEntity = this.parentService.getEntityInStorage()
+      this.parentService.update(this.parentRequest, updateEntity.id).subscribe({
+        next: (response) => {
+          this.alertFailRequest = false;
+          this.loading = false;
+          this.parentService.removeEntityInStorage()
+          this.router.navigate(['/admin/all-parent'], { relativeTo: this.route });
+        },
+        error: (e) => {
+          this.alertFailRequest = true;
+          this.loading = false;
+        }
+      })
+    }
+    else {
+      this.generateFormData()
+      this.userService.create(this.formData).subscribe({
+        next: (response) => {
+          this.alertFailRequest = false;
+          this.loading = false;
+          this.parentService.removeEntityInStorage()
+          this.router.navigate(['/admin/all-parent'], { relativeTo: this.route });
+        },
+        error: (e) => {
+          this.alertFailRequest = true;
+          this.loading = false;
+        }
+      })
+    }
   }
 
   getFile(event: Event) {
@@ -127,5 +166,5 @@ export class FormParentComponent {
       this.formData.append(key, value);
     });
   }
-  
+
 }

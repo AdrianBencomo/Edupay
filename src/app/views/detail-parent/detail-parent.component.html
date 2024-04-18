@@ -7,11 +7,43 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-5 mt-5 px-5">
-                <div id="avatar" [style.background-image]="'url(' + parent.profilePhoto + ')'"></div>
+                <div id="image-preview" class="avatar" [style.background-image]="'url(' + parent.profilePhoto + ')'">
+                </div>
             </div>
             <div class="col-12 col-md-7 mt-5">
-                <h3 class="text-primary-color fs-4 poppins-bold">{{parent.name}} {{parent.lastName}}</h3>
-                <p class="poppins fs-5 w-75 mt-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                <div class="d-flex align-items-center">
+                    <h3 class="text-primary-color fs-4 poppins-bold">{{parent.name}} {{parent.lastName}}</h3>
+                    <span class="material-symbols-outlined clickeable text-primary-color fs-4 ms-3 pb-2"
+                        [routerLink]="'/admin/add-parent'">
+                        edit
+                    </span>
+                </div>
+                <div class="d-block d-md-flex align-items-center mt-2">
+                    <div class="form-group">
+                        <label for="image" class="poppins font-size-small m-0 p-0">Update Student Photo (150px X
+                            150px)</label>
+                        <br>
+                        <input type="file" id="image" name="image" class="m-0 p-0" (change)="getFile($event)"
+                            accept=".png, .jpg" [(ngModel)]="myImage" #image="ngModel" required>
+                    </div>
+                    <span class="material-symbols-outlined clickeable text-primary-color fs-4 ms-3 pb-2"
+                        (click)="saveImage()">
+                        save
+                    </span>
+                </div>
+
+                @if(alertSaveImageSuccess){
+                <div class="mt-3 bg-success text-white rounded p-2 poppins-bold fs-small text-center w-75">Imagen
+                    guardada correctamente</div>
+                }
+
+                @if(alertSaveImageError){
+                <div class="mt-3 bg-danger text-white rounded p-2 poppins-bold fs-small text-center w-75">Error al
+                    guadar
+                    imagen</div>
+                }
+
+                <p class="poppins fs-5 w-75 mt-4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium
                     doloremque laudantium, totam rem aperiam, eaque ipsa</p>
 
@@ -61,13 +93,19 @@
                     <h5 class="col-12 col-md-12 poppins fw-bold fs-5 text-secondary-color">Tutor de:</h5>
                     @for (student of parent.tutorados; track student.id) {
                     <div class="row align-items-center mt-2 ms-3">
-                        <div class="col-12 col-md-2 col-lg-2 mt-1">
+                        <div class="col-3 col-md-2 col-lg-2 mt-1">
                             <div class="avatar-small" [style.background-image]="'url(' + student.profilePhoto + ')'">
                             </div>
                         </div>
-                        <div class="col-12 col-md-10 col-lg-10 mt-2">
+                        <div class="col-7 col-md-9 col-lg-8 mt-2">
                             <h6 class="poppins fw-bold font-size-small text-muted">{{student.name}}
                                 {{student.lastName}} ({{student.email}})</h6>
+                        </div>
+                        <div class="col-2 col-md-1 col-lg-2 mt-2">
+                            <span class="material-symbols-outlined clickeable text-primary-color"
+                                [routerLink]="'/admin/payment-period/' + parent.id + '/' + student.id ">
+                                app_registration
+                            </span>
                         </div>
 
 

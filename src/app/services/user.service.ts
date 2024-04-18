@@ -23,4 +23,10 @@ export class UserService {
   public create(data: FormData): Observable<ApiResponseStudent> {
     return this.http.post<ApiResponseStudent>(`${API_URL}/Users`, data);
   }
+
+  public saveImage(data: FormData, id: number): Observable<ApiResponseStudent> {
+    return this.http.put<ApiResponseStudent>(`${API_URL}/UsersImage/${id}`, data);
+  }
+
+
 }

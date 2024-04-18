@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ParentService } from '../../services/parent.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,7 +19,11 @@ export class SidebarComponent {
   showAcademicModule: boolean = false;
   showAccountModule: boolean = false;
 
-  constructor() {
+  constructor(
+    private parentService: ParentService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.screenWidth = window.innerWidth;
     this.isMobile = this.screenWidth <= 1024
   }
@@ -48,6 +53,12 @@ export class SidebarComponent {
 
   switchAccountModule() {
     this.showAccountModule = !this.showAccountModule
+  }
+
+  goToAddParent(){
+    this.parentService.removeEntityInStorage()
+    this.router.navigate(['/admin/add-parent'], { relativeTo: this.route });
+
   }
 
 }

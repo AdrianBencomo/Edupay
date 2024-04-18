@@ -25,6 +25,7 @@ import { AllGroupComponent } from '../../views/all-group/all-group.component';
 import { FormPeriodComponent } from '../../views/form-period/form-period.component';
 import { DetailPeriodComponent } from '../../views/detail-period/detail-period.component';
 import { DetailGradeComponent } from '../../views/detail-grade/detail-grade.component';
+import { PaymentPeriodComponent } from '../../views/payment-period/payment-period.component';
 
 const routes: Routes = [
   {
@@ -122,6 +123,10 @@ const routes: Routes = [
       {
         path: 'all-group',
         component: AllGroupComponent
+      },
+      {
+        path: 'payment-period/:idParent/:idChildren',
+        component: PaymentPeriodComponent
       },
 
     ]

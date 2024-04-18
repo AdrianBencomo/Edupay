@@ -30,4 +30,5 @@ export interface ApiRequestParent{
     phone: string,
     groupId: number,
     tutorId: number,
+    profilePhoto?: string,
 }
