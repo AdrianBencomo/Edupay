@@ -6,6 +6,7 @@ import { PaymentNotification, PaymentPeriod } from '../../interfaces/payment';
 import { PaymentService } from '../../services/payment.service';
 import { PeriodService } from '../../services/period.service';
 import { ApiResponsePeriod } from '../../interfaces/period';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-payment-period',
@@ -25,7 +26,7 @@ export class PaymentPeriodComponent {
     userid: 0,
     hijoId: 0,
     periodId: 0,
-    title: 'Realizar pago',
+    title: '',
     description: 'Usted tiene un pago pendiente de un periodo'
   }
 
@@ -37,6 +38,7 @@ export class PaymentPeriodComponent {
   constructor(
     private service: PaymentService,
     private periodService: PeriodService,
+    private studentService: StudentService,
     public route: ActivatedRoute,
     public router: Router
   ) {
@@ -61,7 +63,14 @@ export class PaymentPeriodComponent {
         this.alertFailRequest = false;
         this.loading = false;
         this.notificationRequest.periodId = this.paymentRequest.periodId ?? 0
-        this.service.createPaymentNotification(this.notificationRequest).subscribe()
+        this.periodService.getById(this.notificationRequest.periodId).subscribe(responsePeriod => {
+          this.studentService.getAll().subscribe(responseStudent => {
+            const myStudent = responseStudent.find(x => x.id == this.notificationRequest.hijoId)
+            this.notificationRequest.title = `Pago pendiente de $${responsePeriod.price}`
+            this.notificationRequest.description = `Inscripción del curso ${responsePeriod.name} (${responsePeriod.startDate?.slice(0, 4)}-${responsePeriod.endDate?.slice(0, 4)}) a ${myStudent?.name} ${myStudent?.lastName}`
+            this.service.createPaymentNotification(this.notificationRequest).subscribe()
+          })
+        })
         this.router.navigate(['/admin/detail-parent'], { relativeTo: this.route });
       },
       error: (e) => {

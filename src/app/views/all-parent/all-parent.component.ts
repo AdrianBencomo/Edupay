@@ -46,7 +46,6 @@ export class AllParentComponent {
         if (this.parents.length > 0) {
           this.noData = false;
           this.parents_paginated = [...this.parents.reverse()]
-          console.log(this.parents_paginated)
           this.pagination.total_pages = Math.ceil(this.parents.length / this.pagination.per_page)
           this.pagination.last_page = this.pagination.total_pages
           this.calculatePage(this.pagination.current_page)
@@ -73,7 +72,7 @@ export class AllParentComponent {
     }
   }
 
-  goToDetail(parent: ApiResponseParent){
+  goToDetail(parent: ApiResponseParent) {
     this.parentService.saveEntityInStorage(parent)
     this.router.navigate(['/admin/detail-parent'], { relativeTo: this.route });
   }

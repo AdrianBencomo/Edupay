@@ -33,14 +33,22 @@
 
         </div>
     </div>
+    @if(loading){
+    <div class="d-flex align-items-center justify-content-center mt-5">
+        <app-loading></app-loading>
+    </div>
+    }
+    @if(noData){
+    <div class="d-flex align-items-center justify-content-center mt-5">
+        <span class="poppins text-light-color font-size-small">Sin resultados</span>
+    </div>
+    }
+    @if(!loading && !noData){
     <div class="table-responsive">
         <table class="table table-responsive table-hover mt-5">
             <thead>
                 <tr>
-                    <th scope="col" class="center-item-table">ID</th>
                     <th scope="col" class="center-item-table">Name</th>
-                    <th scope="col" class="center-item-table">Gender</th>
-                    <th scope="col" class="center-item-table">Class</th>
                     <th scope="col" class="center-item-table">Amount</th>
                     <th scope="col" class="center-item-table">Status</th>
                     <th scope="col" class="center-item-table">Parent Email</th>
@@ -48,31 +56,35 @@
                 </tr>
             </thead>
             <tbody>
-                @for (studentFee of studentFees; track studentFee.id) {
-                <tr>
-                    <td class="center-item-table">{{studentFee.id}}</td>
-                    <td class="center-item-table">{{studentFee.name}}</td>
-                    <td class="center-item-table">{{studentFee.gender}}</td>
-                    <td class="center-item-table">{{studentFee.class}}</td>
-                    <td class="center-item-table">${{studentFee.amount}}</td>
+                @for (payment of payments_paginated; track payment.sessionId) {
+                <tr class="clickeable">
+                    <td class="center-item-table">{{payment.nameHijo}}</td>
+                    <td class="center-item-table">${{payment.amout}}</td>
                     <td class="center-item-table">
-                        <div class="element-status" [ngClass]="{'bg-primary-color': studentFee.status === 'Paid', 'bg-secondary-color': studentFee.status === 'unpaid'}">
-                            {{studentFee.status}}
+                        <div class="element-status"
+                            [ngClass]="{'bg-primary-color': payment.sessionStatus !== 'unpaid', 'bg-secondary-color': payment.sessionStatus === 'unpaid'}">
+                            {{payment.sessionStatus}}
                         </div>
                     </td>
-                    <td class="center-item-table">{{studentFee.parent_email}}</td>
-                    <td class="center-item-table">{{studentFee.parent_phone}}</td>
+                    <td class="center-item-table">{{payment.emailPadre}}</td>
+                    <td class="center-item-table">{{payment.phonePadre}}</td>
                 </tr>
                 }
             </tbody>
         </table>
     </div>
     <div class="d-flex align-items-center justify-content-end mt-3">
-        <p class="pagination-item fs-5 m-2">Previous</p>
-        <button class="button button-pagination-active font-size-small m-2">1</button>
-        <button class="button button-pagination-inactive font-size-small m-2">2</button>
-        <button class="button button-pagination-inactive font-size-small m-2">3</button>
-        <p class="pagination-item fs-5 m-2">Next</p>
+        <button class="bg-white fs-5 m-2" [disabled]="pagination.current_page === pagination.first_page"
+            [ngClass]="{'pagination-item': pagination.current_page !== pagination.first_page, 'pagination-item-inactive': pagination.current_page === pagination.first_page}"
+            (click)="calculatePage(pagination.current_page - 1)">Previous</button>
+        @for (page of pagination.pages; track page.number){
+        <button class="button font-size-small m-2" (click)="calculatePage(page.number)"
+            [ngClass]="{'button-pagination-active': pagination.current_page === page.number, 'button-pagination-inactive': pagination.current_page !== page.number}">{{page.number}}</button>
+        }
+        <button class="bg-white fs-5 m-2" [disabled]="pagination.current_page === pagination.last_page"
+            [ngClass]="{'pagination-item': pagination.current_page !== pagination.last_page, 'pagination-item-inactive': pagination.current_page === pagination.last_page}"
+            (click)="calculatePage(pagination.current_page + 1)">Next</button>
 
     </div>
+    }
 </div>

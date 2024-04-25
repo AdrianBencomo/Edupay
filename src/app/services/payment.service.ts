@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_URL } from '../../constants/url';
-import { PaymentNotification, PaymentPeriod } from '../interfaces/payment';
+import { ApiResponsePayment, PaymentNotification, PaymentPeriod } from '../interfaces/payment';
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +13,10 @@ export class PaymentService {
         private http: HttpClient
     ) {
 
+    }
+
+    public getAllPayments(): Observable<ApiResponsePayment[]> {
+        return this.http.get<ApiResponsePayment[]>(`${API_URL}/payments`,);
     }
 
     public createPaymentPeriod(data: PaymentPeriod): Observable<PaymentPeriod> {

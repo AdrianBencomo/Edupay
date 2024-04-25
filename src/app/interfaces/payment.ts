@@ -10,3 +10,14 @@ export interface PaymentNotification {
     periodId: number,
     hijoId: number
 }
+
+export interface ApiResponsePayment {
+    sessionId: string;
+    nameHijo: string;
+    emailPadre: string;
+    phonePadre: string;
+    amout: number;
+    sessionStatus: string;
+    hijoId: number;
+    fechaPago: string;
+}

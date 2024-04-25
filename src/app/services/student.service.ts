@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponseStudent} from '../interfaces/student';
+import { ApiRequestStudent, ApiResponseStudent} from '../interfaces/student';
 import { API_URL } from '../../constants/url';
 
 @Injectable({
@@ -25,6 +25,10 @@ export class StudentService {
 
   public getEntityInStorage() {
     return JSON.parse(localStorage.getItem("student") ?? '')
+  }
+
+  public update(data: ApiRequestStudent, id: number): Observable<ApiResponseStudent> {
+    return this.http.put<ApiResponseStudent>(`${API_URL}/Users/${id}`, data);
   }
 
 }

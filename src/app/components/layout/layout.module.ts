@@ -26,6 +26,7 @@ import { FormPeriodComponent } from '../../views/form-period/form-period.compone
 import { DetailPeriodComponent } from '../../views/detail-period/detail-period.component';
 import { DetailGradeComponent } from '../../views/detail-grade/detail-grade.component';
 import { PaymentPeriodComponent } from '../../views/payment-period/payment-period.component';
+import { EditStudentComponent } from '../../views/edit-student/edit-student.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: 'add-student/:idParent',
         component: FormStudentComponent
+      },
+      {
+        path: 'edit-student/:id',
+        component: EditStudentComponent
       },
       {
         path: 'detail-student',

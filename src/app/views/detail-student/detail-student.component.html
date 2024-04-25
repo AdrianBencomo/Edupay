@@ -8,10 +8,44 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-5 mt-5 px-5">
-                <div id="avatar" [style.background-image]="'url(' + student.profilePhoto + ')'"></div>
+                <div id="image-preview" class="avatar" [style.background-image]="'url(' + student.profilePhoto + ')'">
+                </div>
             </div>
             <div class="col-12 col-md-7 mt-5">
-                <h3 class="text-primary-color fs-4 poppins-bold">{{student.name}} {{student.lastName}}</h3>
+                <div class="d-flex align-items-center">
+                    <h3 class="text-primary-color fs-4 poppins-bold">{{student.name}} {{student.lastName}}</h3>
+                    <span class="material-symbols-outlined clickeable text-primary-color fs-4 ms-3 pb-2"
+                        [routerLink]="'/admin/edit-student/' + student.id">
+                        edit
+                    </span>
+                </div>
+                <div class="d-block d-md-flex align-items-center mt-2">
+                    <div class="form-group">
+                        <label for="image" class="poppins font-size-small m-0 p-0">Update Student Photo (150px X
+                            150px)</label>
+                        <br>
+                        <input type="file" id="image" name="image" class="m-0 p-0" (change)="getFile($event)"
+                            accept=".png, .jpg" [(ngModel)]="myImage" #image="ngModel" required>
+                    </div>
+                    <span class="material-symbols-outlined clickeable text-primary-color fs-4 ms-3 pb-2"
+                        (click)="saveImage()">
+                        save
+                    </span>
+                </div>
+
+                @if(alertSaveImageSuccess){
+                <div class="mt-3 bg-success text-white rounded p-2 poppins-bold fs-small text-center w-75">
+                    Save image successful
+                </div>
+                }
+
+                @if(alertSaveImageError){
+                <div class="mt-3 bg-danger text-white rounded p-2 poppins-bold fs-small text-center w-75">
+                    Error to save image
+                </div>
+                }
+
+
                 <p class="poppins fs-5 w-75 mt-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                     accusantium
                     doloremque laudantium, totam rem aperiam, eaque ipsa</p>
